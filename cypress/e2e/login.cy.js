@@ -8,6 +8,21 @@ describe('API Login - ServeRest', () => {
   describe('Positive scenarios', () => {
 
     it('login sucess', () => {
+
+        cy.request({
+        method: 'POST',
+        url: endpoint,
+        body: {
+          email: emailValid,
+          password: senhaValid
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(200)
+        expect(response.body.message).to.eq('Login realizado com sucesso')
+        expect(response.body).to.have.property('authorization')
+        expect(response.body.authorization).to.be.a('string')
+        expect(response.body.authorization).to.contain('Bearer')
+      })
       
     })
 
