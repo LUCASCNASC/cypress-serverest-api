@@ -5,7 +5,7 @@ describe('API Login - ServeRest', () => {
   const emailValid = Cypress.env('EMAIL_USER_VALID')
   const senhaValid = Cypress.env('SENHA_USER_VALID')
 
-  describe('Positive scenarios', () => {
+  context('Positive scenarios', () => {
 
     it('login sucess', () => {
 
@@ -28,23 +28,59 @@ describe('API Login - ServeRest', () => {
 
   })
 
-  describe('Negative Scenarios - Invalid credentials', () => {
+  context('Negative Scenarios - Invalid credentials', () => {
 
     it('To try login with invalid email', () => {
-      
+
+        cy.request({
+        method: 'POST',
+        url: endpoint,
+        failOnStatusCode: false,
+        body: {
+          email: 'email_invalido@qa.com',
+          password: senhaValid
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(401)
+        expect(response.body.message).to.eq('Email e/ou senha inválidos')
+      })
     })
 
     it('To try login with invalid password', () => {
-      
+
+        cy.request({
+        method: 'POST',
+        url: endpoint,
+        failOnStatusCode: false,
+        body: {
+          email: emailValid,
+          password: 'senhaErrada123'
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(401)
+        expect(response.body.message).to.eq('Email e/ou senha inválidos')
+      })
     })
 
     it('To try login with invalid email and password', () => {
-      
-    })
 
+        cy.request({
+        method: 'POST',
+        url: endpoint,
+        failOnStatusCode: false,
+        body: {
+          email: 'email_invalido@qa.com',
+          password: 'senhaErrada123'
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(401)
+        expect(response.body.message).to.eq('Email e/ou senha inválidos')
+      })
+    })
+    
   })
 
-  describe('Negative Scenarios - Required fields empty', () => {
+  context('Negative Scenarios - Required fields empty', () => {
 
     it('To try login with empty email', () => {
       
