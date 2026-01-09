@@ -83,14 +83,49 @@ describe('API Login - ServeRest', () => {
   context('Negative Scenarios - Required fields empty', () => {
 
     it('To try login with empty email', () => {
+
+        cy.request({
+        method: 'POST',
+        url: endpoint,
+        failOnStatusCode: false,
+        body: {
+          password: senhaValid
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.body.email).to.eq('email é obrigatório')
+      })
       
     })
 
     it('To try login with empty password', () => {
+
+        cy.request({
+        method: 'POST',
+        url: endpoint,
+        failOnStatusCode: false,
+        body: {
+          email: emailValid
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.body.password).to.eq('password é obrigatório')
+      })
       
     })
 
     it('To try login with empty email and password', () => {
+
+        cy.request({
+        method: 'POST',
+        url: endpoint,
+        failOnStatusCode: false,
+        body: {}
+      }).then((response) => {
+        expect(response.status).to.eq(400)
+        expect(response.body.email).to.eq('email é obrigatório')
+        expect(response.body.password).to.eq('password é obrigatório')
+      })
       
     })
 
