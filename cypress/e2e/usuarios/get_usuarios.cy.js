@@ -9,12 +9,10 @@ describe('API Usuários - GET /usuarios', () => {
         }).then((response) => {
         expect(response.status).to.eq(200)
 
-        // valida estrutura principal
         expect(response.body).to.have.property('quantidade')
         expect(response.body).to.have.property('usuarios')
         expect(response.body.usuarios).to.be.an('array')
 
-        // valida estrutura do primeiro usuário (se existir)
         if (response.body.usuarios.length > 0) {
             const usuario = response.body.usuarios[0]
 
