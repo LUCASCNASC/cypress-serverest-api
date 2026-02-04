@@ -1,15 +1,36 @@
 describe('API Login - ServeRest', () => {
 
   const endpoint = '/login'
+  const usersEndpoint = '/usuarios'
 
-  const emailValid = Cypress.env('EMAIL_USER_VALID')
-  const senhaValid = Cypress.env('SENHA_USER_VALID')
+  let emailValid
+  let senhaValid
+
+  before(() => {
+    // Criar usuário antes dos testes
+    const timestamp = Date.now()
+    emailValid = `qa_${timestamp}@test.com`
+    senhaValid = 'Teste123!'
+
+    cy.request({
+      method: 'POST',
+      url: usersEndpoint,
+      body: {
+        nome: 'Usuário Login Teste',
+        email: emailValid,
+        password: senhaValid,
+        administrador: 'true'
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(201)
+      expect(response.body.message).to.eq('Cadastro realizado com sucesso')
+    })
+  })
 
   context('Positive scenarios', () => {
 
-    it('login sucess', () => {
-
-        cy.request({
+    it('Login success', () => {
+      cy.request({
         method: 'POST',
         url: endpoint,
         body: {
@@ -23,16 +44,14 @@ describe('API Login - ServeRest', () => {
         expect(response.body.authorization).to.be.a('string')
         expect(response.body.authorization).to.contain('Bearer')
       })
-      
     })
 
   })
 
   context('Negative Scenarios - Invalid credentials', () => {
 
-    it('To try login with invalid email', () => {
-
-        cy.request({
+    it('Try login with invalid email', () => {
+      cy.request({
         method: 'POST',
         url: endpoint,
         failOnStatusCode: false,
@@ -46,9 +65,8 @@ describe('API Login - ServeRest', () => {
       })
     })
 
-    it('To try login with invalid password', () => {
-
-        cy.request({
+    it('Try login with invalid password', () => {
+      cy.request({
         method: 'POST',
         url: endpoint,
         failOnStatusCode: false,
@@ -62,9 +80,8 @@ describe('API Login - ServeRest', () => {
       })
     })
 
-    it('To try login with invalid email and password', () => {
-
-        cy.request({
+    it('Try login with invalid email and password', () => {
+      cy.request({
         method: 'POST',
         url: endpoint,
         failOnStatusCode: false,
@@ -77,14 +94,13 @@ describe('API Login - ServeRest', () => {
         expect(response.body.message).to.eq('Email e/ou senha inválidos')
       })
     })
-    
+
   })
 
   context('Negative Scenarios - Required fields empty', () => {
 
-    it('To try login with empty email', () => {
-
-        cy.request({
+    it('Try login with empty email', () => {
+      cy.request({
         method: 'POST',
         url: endpoint,
         failOnStatusCode: false,
@@ -95,12 +111,10 @@ describe('API Login - ServeRest', () => {
         expect(response.status).to.eq(400)
         expect(response.body.email).to.eq('email é obrigatório')
       })
-      
     })
 
-    it('To try login with empty password', () => {
-
-        cy.request({
+    it('Try login with empty password', () => {
+      cy.request({
         method: 'POST',
         url: endpoint,
         failOnStatusCode: false,
@@ -111,12 +125,10 @@ describe('API Login - ServeRest', () => {
         expect(response.status).to.eq(400)
         expect(response.body.password).to.eq('password é obrigatório')
       })
-      
     })
 
-    it('To try login with empty email and password', () => {
-
-        cy.request({
+    it('Try login with empty email and password', () => {
+      cy.request({
         method: 'POST',
         url: endpoint,
         failOnStatusCode: false,
@@ -126,9 +138,8 @@ describe('API Login - ServeRest', () => {
         expect(response.body.email).to.eq('email é obrigatório')
         expect(response.body.password).to.eq('password é obrigatório')
       })
-      
     })
 
   })
-
+  
 })
