@@ -1,0 +1,25 @@
+name: Cypress API Serverest
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  cypress-api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress API tests
+        run: npx cypress run --spec "cypress/e2e/api/**/*.cy.js"
