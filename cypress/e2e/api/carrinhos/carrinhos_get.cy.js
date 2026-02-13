@@ -44,7 +44,7 @@ describe('Cenários de Teste: GET /carrinhos', () => {
     });
   });
 
-  it('Deve listar todos os carrinhos com sucesso (Status 200)', () => {
+  it('Status 200: Deve listar todos os carrinhos com sucesso.', () => {
     cy.request({
       method: 'GET',
       url: '/carrinhos'

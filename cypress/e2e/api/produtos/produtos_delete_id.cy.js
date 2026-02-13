@@ -23,7 +23,7 @@ describe('Cenários de Teste: DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Deve excluir um produto com sucesso (Status 200)', () => {
+  it('Status 200: Deve excluir um produto com sucesso.', () => {
     // Primeiro cria um produto para garantir que o ID exista para deleção
     cy.request({
       method: 'POST',
@@ -47,7 +47,7 @@ describe('Cenários de Teste: DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Deve retornar erro ao excluir produto que faz parte de carrinho (Status 400)', () => {
+  it('Status 400: Deve retornar erro ao excluir produto que faz parte de carrinho.', () => {
     // ID de exemplo que geralmente possui carrinho no ServeRest
     const idComCarrinho = 'BeeJh5lz3k6kSlzA'; 
 
@@ -68,7 +68,7 @@ describe('Cenários de Teste: DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Deve validar erro de token ausente ou inválido (Status 401)', () => {
+  it('Status 401: Deve validar erro de token ausente ou inválido.', () => {
     cy.request({
       method: 'DELETE',
       url: '/produtos/id_qualquer',
@@ -80,7 +80,7 @@ describe('Cenários de Teste: DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Deve validar acesso proibido para não administradores (Status 403)', () => {
+  it('Status 403: Deve validar acesso proibido para não administradores.', () => {
     cy.request({
       method: 'DELETE',
       url: '/produtos/id_qualquer',

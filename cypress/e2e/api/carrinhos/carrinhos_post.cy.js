@@ -43,7 +43,7 @@ describe('Cenários de Teste: POST /carrinhos', () => {
     });
   });
 
-  it('Deve cadastrar um carrinho com sucesso (Status 201)', () => {
+  it('Status 201: Deve cadastrar um carrinho com sucesso.', () => {
     cy.request({
       method: 'POST',
       url: '/carrinhos',
@@ -60,7 +60,7 @@ describe('Cenários de Teste: POST /carrinhos', () => {
     });
   });
 
-  it('Deve validar erro ao tentar ter mais de 1 carrinho (Status 400)', () => {
+  it('Status 400: Deve validar erro ao tentar ter mais de 1 carrinho.', () => {
     const payload = {
       produtos: [{ idProduto: idProduto, quantidade: 1 }]
     };
@@ -86,7 +86,7 @@ describe('Cenários de Teste: POST /carrinhos', () => {
     });
   });
 
-  it('Deve validar erro de token ausente ou inválido (Status 401)', () => {
+  it('Status 401: Deve validar erro de token ausente ou inválido.', () => {
     cy.request({
       method: 'POST',
       url: '/carrinhos',

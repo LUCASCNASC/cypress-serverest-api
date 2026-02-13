@@ -1,6 +1,6 @@
 describe('Cenários de Teste: GET /usuarios', () => {
 
-  it('Deve listar todos os usuários cadastrados com sucesso (Status 200)', () => {
+  it('Status 200: Deve listar todos os usuários cadastrados com sucesso.', () => {
     cy.request({
       method: 'GET',
       url: '/usuarios'

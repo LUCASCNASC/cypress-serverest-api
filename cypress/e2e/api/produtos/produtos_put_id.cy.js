@@ -23,7 +23,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Deve alterar um produto com sucesso (Status 200)', () => {
+  it('Status 200: Deve alterar um produto com sucesso.', () => {
     const nomeOriginal = `Prod_Original_${Date.now()}`;
     
     // Primeiro cria um produto para ter um ID real
@@ -53,7 +53,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Deve cadastrar novo produto se o ID não existir (Status 201)', () => {
+  it('Status 201: Deve cadastrar novo produto se o ID não existir.', () => {
     // Gerando um ID aleatório com exatamente 16 caracteres alfanuméricos
     const idValidoMasInexistente = Math.random().toString(36).substring(2, 10) + 
                                    Math.random().toString(36).substring(2, 10);
@@ -77,7 +77,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Deve validar erro de nome já utilizado por outro produto (Status 400)', () => {
+  it('Status 400: Deve validar erro de nome já utilizado por outro produto.', () => {
     const nomeEmUso = `Nome_Ocupado_${Date.now()}`;
 
     // 1. Cadastra Produto A (Dono do nome)
@@ -119,7 +119,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Deve validar erro de token ausente ou inválido (Status 401)', () => {
+  it('Status 401: Deve validar erro de token ausente ou inválido.', () => {
     cy.request({
       method: 'PUT',
       url: '/produtos/qualquer_id',
@@ -132,7 +132,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Deve validar acesso proibido para não admin (Status 403)', () => {
+  it('Status 403: Deve validar acesso proibido para não admin.', () => {
     cy.request({
       method: 'PUT',
       url: '/produtos/qualquer_id',

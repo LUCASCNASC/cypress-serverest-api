@@ -1,6 +1,6 @@
 describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
 
-  it('Deve alterar um usuário com sucesso (Status 200)', () => {
+  it('Status 200: Deve alterar um usuário com sucesso.', () => {
     const timestamp = Date.now();
     const dadosIniciais = {
       nome: `Original_${timestamp}`,
@@ -30,7 +30,7 @@ describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
     });
   });
 
-  it('Deve cadastrar um novo usuário via PUT caso o ID não exista (Status 201)', () => {
+  it('Status 201: Deve cadastrar um novo usuário via PUT caso o ID não exista.', () => {
     const idInexistente = `id_fake_${Date.now()}`;
     
     cy.request({
@@ -49,7 +49,7 @@ describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
     });
   });
 
-  it('Deve retornar erro ao tentar usar e-mail de outro usuário (Status 400)', () => {
+  it('Status 400: Deve retornar erro ao tentar usar e-mail de outro usuário.', () => {
     const timestamp = Date.now();
     const emailJaEmUso = `ja_existe_${timestamp}@qa.com`;
 

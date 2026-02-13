@@ -1,6 +1,6 @@
 describe('Cenários de Teste: POST /usuarios', () => {
 
-  it('Deve cadastrar um usuário com sucesso (Status 201) - Dados Dinâmicos', () => {
+  it('Status 201: Deve cadastrar um usuário com sucesso - Dados Dinâmicos', () => {
     // Gerando sufixo único baseado no timestamp atual
     const timestamp = Date.now();
     
@@ -26,7 +26,7 @@ describe('Cenários de Teste: POST /usuarios', () => {
     });
   });
 
-  it('Deve validar que não é permitido cadastrar usuário com e-mail já utilizado (Status 400)', () => {
+  it('Status 400: Deve validar que não é permitido cadastrar usuário com e-mail já utilizado.', () => {
     // 1. Definimos uma massa de dados única para este teste
     const dadosUsuario = {
       nome: "Lucas Teste Duplicado",

@@ -1,6 +1,6 @@
 describe('Cenários de Teste: GET /usuarios/{_id}', () => {
 
-  it('Deve buscar um usuário pelo ID com sucesso (Status 200)', () => {
+  it('Status 200: Deve buscar um usuário pelo ID com sucesso.', () => {
     // 1. Criar um novo usuário para garantir que o ID existe
     const timestamp = Date.now();
     const dadosUsuario = {
@@ -27,7 +27,7 @@ describe('Cenários de Teste: GET /usuarios/{_id}', () => {
     });
   });
 
-  it('Deve retornar erro ao buscar um ID inexistente (Status 400)', () => {
+  it('Status 400: Deve retornar erro ao buscar um ID inexistente.', () => {
     const idInexistente = '0aaaAA0aaaAaaAa0';
 
     cy.request({
@@ -41,7 +41,7 @@ describe('Cenários de Teste: GET /usuarios/{_id}', () => {
     });
   });
 
-  it('Deve retornar erro ao buscar um ID inexistente, burlando a quantidade (Status 400)', () => {
+  it('Status 400: Deve retornar erro ao buscar um ID inexistente, burlando a quantidade.', () => {
     const idIerrado = 'ID_QUE_NAO_EXISTE_123';
 
     cy.request({

@@ -43,7 +43,7 @@ describe('Cenários de Teste: Concluir Compra', () => {
     });
   });
 
-  it('Deve concluir a compra com sucesso (Status 200)', () => {
+  it('Status 200: Deve concluir a compra com sucesso.', () => {
     cy.request({
       method: 'DELETE',
       url: '/carrinhos/concluir-compra',
@@ -55,7 +55,7 @@ describe('Cenários de Teste: Concluir Compra', () => {
     });
   });
 
-  it('Deve retornar erro ao tentar concluir sem token de acesso (Status 401)', () => {
+  it('Status 401: Deve retornar erro ao tentar concluir sem token de acesso.', () => {
     cy.request({
       method: 'DELETE',
       url: '/carrinhos/concluir-compra',

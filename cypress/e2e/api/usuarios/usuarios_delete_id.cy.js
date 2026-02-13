@@ -1,6 +1,6 @@
 describe('Cenários de Teste: DELETE /usuarios/{_id}', () => {
 
-  it('Deve excluir um usuário com sucesso (Status 200)', () => {
+  it('Status 200: Deve excluir um usuário com sucesso.', () => {
     const timestamp = Date.now();
     const dadosUsuario = {
       nome: `Delete_Me_${timestamp}`,
@@ -28,7 +28,7 @@ describe('Cenários de Teste: DELETE /usuarios/{_id}', () => {
     });
   });
 
-  it('Deve retornar erro ao tentar excluir usuário com carrinho (Status 400)', () => {
+  it('Status 400: Deve retornar erro ao tentar excluir usuário com carrinho.', () => {
     // Nota: Para este cenário, o usuário precisa ter um carrinho vinculado.
     // Como estamos focados em Usuários, usaremos um ID que sabidamente possui erro no ServeRest
     // ou um fluxo onde você criaria um produto e um carrinho antes (mais complexo).

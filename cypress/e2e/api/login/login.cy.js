@@ -29,7 +29,7 @@ describe('API Login - ServeRest', () => {
 
   context('Positive scenarios', () => {
 
-    it('Login success', () => {
+    it('Status 200: Login success', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -50,7 +50,7 @@ describe('API Login - ServeRest', () => {
 
   context('Negative Scenarios - Invalid credentials', () => {
 
-    it('Try login with invalid email', () => {
+    it('Status 401: Try login with invalid email', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -65,7 +65,7 @@ describe('API Login - ServeRest', () => {
       })
     })
 
-    it('Try login with invalid password', () => {
+    it('Status 401: Try login with invalid password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -80,7 +80,7 @@ describe('API Login - ServeRest', () => {
       })
     })
 
-    it('Try login with invalid email and password', () => {
+    it('Status 401: Try login with invalid email and password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -99,7 +99,7 @@ describe('API Login - ServeRest', () => {
 
   context('Negative Scenarios - Required fields empty', () => {
 
-    it('Try login with empty email', () => {
+    it('Status 400: Try login with empty email', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -113,7 +113,7 @@ describe('API Login - ServeRest', () => {
       })
     })
 
-    it('Try login with empty password', () => {
+    it('Status 400: Try login with empty password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -127,7 +127,7 @@ describe('API Login - ServeRest', () => {
       })
     })
 
-    it('Try login with empty email and password', () => {
+    it('Status 400: Try login with empty email and password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
