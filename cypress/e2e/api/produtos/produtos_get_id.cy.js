@@ -55,7 +55,6 @@ describe('Cenários de Teste: GET /produtos/{_id}', () => {
       failOnStatusCode: false
     }).then((response) => {
       expect(response.status).to.eq(400);
-      // Validando a mensagem conforme o seu screenshot da documentação
       expect(response.body.message).to.eq('Produto não encontrado');
     });
   });

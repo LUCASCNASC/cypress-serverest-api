@@ -9,11 +9,11 @@ describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
       administrador: "true"
     };
 
-    // 1. Cria o usuário para garantir que o ID existe
+    // Cria o usuário para garantir que o ID existe
     cy.request('POST', '/usuarios', dadosIniciais).then((resPost) => {
       const idUsuario = resPost.body._id;
 
-      // 2. Realiza o PUT para editar os dados
+      // Realiza o PUT para editar os dados
       cy.request({
         method: 'PUT',
         url: `/usuarios/${idUsuario}`,
@@ -53,7 +53,7 @@ describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
     const timestamp = Date.now();
     const emailJaEmUso = `ja_existe_${timestamp}@qa.com`;
 
-    // 1. Cria usuário A
+    // Cria usuário A
     cy.request('POST', '/usuarios', {
       nome: "Usuario A",
       email: emailJaEmUso,
@@ -61,7 +61,7 @@ describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
       administrador: "true"
     });
 
-    // 2. Cria usuário B
+    // Cria usuário B
     cy.request('POST', '/usuarios', {
       nome: "Usuario B",
       email: `temp_${timestamp}@qa.com`,
@@ -70,7 +70,7 @@ describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
     }).then((resB) => {
       const idUsuarioB = resB.body._id;
 
-      // 3. Tenta editar o usuário B usando o e-mail do usuário A
+      // Tenta editar o usuário B usando o e-mail do usuário A
       cy.request({
         method: 'PUT',
         url: `/usuarios/${idUsuarioB}`,

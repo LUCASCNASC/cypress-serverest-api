@@ -5,14 +5,9 @@ describe('Cenários de Teste: GET /produtos', () => {
       method: 'GET',
       url: '/produtos'
     }).then((response) => {
-      // Validações baseadas no seu screenshot da documentação
       expect(response.status).to.eq(200);
-      
-      // Verifica se as propriedades principais estão presentes
       expect(response.body).to.have.property('quantidade');
       expect(response.body).to.have.property('produtos');
-      
-      // Valida se 'produtos' é um array e se a quantidade condiz com o tamanho do array
       expect(response.body.produtos).to.be.an('array');
       expect(response.body.quantidade).to.be.a('number');
       expect(response.body.quantidade).to.eq(response.body.produtos.length);

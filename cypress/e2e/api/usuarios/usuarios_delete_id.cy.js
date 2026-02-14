@@ -9,11 +9,11 @@ describe('Cenários de Teste: DELETE /usuarios/{_id}', () => {
       administrador: "true"
     };
 
-    // 1. Criar o usuário para ter um ID válido para deletar
+    // Criar o usuário para ter um ID válido para deletar
     cy.request('POST', '/usuarios', dadosUsuario).then((resPost) => {
       const idUsuario = resPost.body._id;
 
-      // 2. Realizar a exclusão
+      // Realizar a exclusão
       cy.request({
         method: 'DELETE',
         url: `/usuarios/${idUsuario}`

@@ -6,7 +6,7 @@ describe('Cenários de Teste: GET /carrinhos', () => {
     const timestamp = Date.now();
     const emailAdmin = `admin_list_${timestamp}@qa.com`;
 
-    // 1. Criar e logar com Admin para preparar a massa de dados
+    // Criar e logar com Admin para preparar a massa de dados
     cy.request('POST', '/usuarios', {
       nome: "Lucas Camargo", 
       email: emailAdmin, 
@@ -16,7 +16,7 @@ describe('Cenários de Teste: GET /carrinhos', () => {
       cy.request('POST', '/login', { email: emailAdmin, password: "teste" }).then(res => {
         token = res.body.authorization;
 
-        // 2. Cadastrar um produto necessário para o carrinho
+        // Cadastrar um produto necessário para o carrinho
         cy.request({
           method: 'POST',
           url: '/produtos',
@@ -30,7 +30,7 @@ describe('Cenários de Teste: GET /carrinhos', () => {
         }).then(resProd => {
           idProduto = resProd.body._id;
 
-          // 3. Cadastrar um carrinho para garantir que a lista tenha ao menos um item
+          // Cadastrar um carrinho para garantir que a lista tenha ao menos um item
           cy.request({
             method: 'POST',
             url: '/carrinhos',
@@ -49,10 +49,7 @@ describe('Cenários de Teste: GET /carrinhos', () => {
       method: 'GET',
       url: '/carrinhos'
     }).then((response) => {
-      // Validação do Status Code conforme solicitado
       expect(response.status).to.eq(200);
-      
-      // Validação da estrutura do corpo da resposta (baseado no screenshot da documentação)
       expect(response.body).to.have.property('quantidade');
       expect(response.body).to.have.property('carrinhos');
       expect(response.body.carrinhos).to.be.an('array');

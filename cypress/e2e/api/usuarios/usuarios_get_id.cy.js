@@ -1,7 +1,7 @@
 describe('Cenários de Teste: GET /usuarios/{_id}', () => {
 
   it('Status 200: Deve buscar um usuário pelo ID com sucesso.', () => {
-    // 1. Criar um novo usuário para garantir que o ID existe
+    // Criar um novo usuário para garantir que o ID existe
     const timestamp = Date.now();
     const dadosUsuario = {
       nome: `Busca_${timestamp}`,
@@ -14,9 +14,8 @@ describe('Cenários de Teste: GET /usuarios/{_id}', () => {
       expect(resPost.status).to.eq(201);
       const idUsuario = resPost.body._id;
 
-      // 2. Utilizar o ID capturado para fazer o GET específico
+      // Utilizar o ID capturado para fazer o GET específico
       cy.request('GET', `/usuarios/${idUsuario}`).then((response) => {
-        // Validações baseadas no seu screenshot (Status 200)
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property('nome', dadosUsuario.nome);
         expect(response.body).to.have.property('email', dadosUsuario.email);
@@ -33,9 +32,8 @@ describe('Cenários de Teste: GET /usuarios/{_id}', () => {
     cy.request({
       method: 'GET',
       url: `/usuarios/${idInexistente}`,
-      failOnStatusCode: false // Necessário para validar o erro 400
+      failOnStatusCode: false
     }).then((response) => {
-      // Validações baseadas no seu screenshot (Status 400)
       expect(response.status).to.eq(400);
       expect(response.body.message).to.eq('Usuário não encontrado');
     });
@@ -47,9 +45,8 @@ describe('Cenários de Teste: GET /usuarios/{_id}', () => {
     cy.request({
       method: 'GET',
       url: `/usuarios/${idIerrado}`,
-      failOnStatusCode: false // Necessário para validar o erro 400
+      failOnStatusCode: false
     }).then((response) => {
-      // Validações baseadas no seu screenshot (Status 400)
       expect(response.status).to.eq(400);
       expect(response.body.id).to.eq('id deve ter exatamente 16 caracteres alfanuméricos');
     });

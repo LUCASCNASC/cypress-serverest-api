@@ -3,7 +3,7 @@ describe('Cenários de Teste: POST /carrinhos', () => {
   let idProduto;
 
   before(() => {
-    // 1. Criar um Admin para cadastrar um produto (estoque necessário para o carrinho)
+    // Criar um Admin para cadastrar um produto (estoque necessário para o carrinho)
     const emailAdmin = `admin_car_${Date.now()}@qa.com`;
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
@@ -12,7 +12,7 @@ describe('Cenários de Teste: POST /carrinhos', () => {
         .then(res => {
           const tokenAdmin = res.body.authorization;
           
-          // 2. Cadastrar um produto com estoque para ser usado nos carrinhos
+          // Cadastrar um produto com estoque para ser usado nos carrinhos
           cy.request({
             method: 'POST',
             url: '/produtos',
@@ -31,7 +31,7 @@ describe('Cenários de Teste: POST /carrinhos', () => {
   });
 
   beforeEach(() => {
-    // 3. Criar um usuário novo para cada teste (Garante que não tenha carrinho prévio)
+    // Criar um usuário novo para cada teste (Garante que não tenha carrinho prévio)
     const emailUser = `user_car_${Date.now()}@qa.com`;
     cy.request('POST', '/usuarios', {
       nome: "User Teste", email: emailUser, password: "teste", administrador: "false"

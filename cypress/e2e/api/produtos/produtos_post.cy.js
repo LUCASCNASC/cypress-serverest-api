@@ -6,7 +6,7 @@ describe('Cenários de Teste: POST /produtos', () => {
     const emailAdmin = `admin_${Date.now()}@qa.com`;
     const emailComum = `comum_${Date.now()}@qa.com`;
 
-    // 1. Criar e Logar com Administrador (para status 201 e 400)
+    // Criar e Logar com Administrador (para status 201 e 400)
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Cenários de Teste: POST /produtos', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // 2. Criar e Logar com Usuário Comum (para status 403)
+    // Criar e Logar com Usuário Comum (para status 403)
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {

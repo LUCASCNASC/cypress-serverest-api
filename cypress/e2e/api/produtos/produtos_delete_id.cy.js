@@ -6,7 +6,7 @@ describe('Cenários de Teste: DELETE /produtos/{_id}', () => {
     const emailAdmin = `admin_del_${Date.now()}@qa.com`;
     const emailComum = `comum_del_${Date.now()}@qa.com`;
 
-    // 1. Criar e Logar com Admin (necessário para os status 200 e 400)
+    // Criar e Logar com Admin (necessário para os status 200 e 400)
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Cenários de Teste: DELETE /produtos/{_id}', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // 2. Criar e Logar com Usuário Comum (necessário para o status 403)
+    // Criar e Logar com Usuário Comum (necessário para o status 403)
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {

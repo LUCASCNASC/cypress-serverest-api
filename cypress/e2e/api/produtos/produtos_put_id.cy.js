@@ -6,7 +6,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
     const emailAdmin = `admin_put_${Date.now()}@qa.com`;
     const emailComum = `comum_put_${Date.now()}@qa.com`;
 
-    // 1. Criar e Logar com Admin
+    // Criar e Logar com Admin
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // 2. Criar e Logar com Comum
+    // Criar e Logar com Comum
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {
@@ -80,7 +80,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
   it('Status 400: Deve validar erro de nome já utilizado por outro produto.', () => {
     const nomeEmUso = `Nome_Ocupado_${Date.now()}`;
 
-    // 1. Cadastra Produto A (Dono do nome)
+    // Cadastra Produto A (Dono do nome)
     cy.request({
       method: 'POST', 
       url: '/produtos', 
@@ -88,7 +88,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
       body: { nome: nomeEmUso, preco: 1, descricao: "D", quantidade: 1 }
     });
 
-    // 2. Cadastra Produto B (O produto que tentaremos alterar)
+    // Cadastra Produto B (O produto que tentaremos alterar)
     // Adicionamos failOnStatusCode: false para evitar quebras se o nome "Produto B" já existir
     cy.request({
       method: 'POST', 
@@ -99,7 +99,7 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
     }).then((resB) => {
       const idB = resB.body._id;
 
-      // 3. Tenta editar o Produto B usando o nome do Produto A
+      // Tenta editar o Produto B usando o nome do Produto A
       cy.request({
         method: 'PUT',
         url: `/produtos/${idB}`,
@@ -112,7 +112,6 @@ describe('Cenários de Teste: PUT /produtos/{_id}', () => {
           quantidade: 1 
         }
       }).then((response) => {
-        // Validação final conforme seu screenshot
         expect(response.status).to.eq(400);
         expect(response.body.message).to.eq('Já existe produto com esse nome');
       });

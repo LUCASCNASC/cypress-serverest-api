@@ -16,7 +16,6 @@ describe('Cenários de Teste: POST /usuarios', () => {
       url: '/usuarios',
       body: dadosUsuario
     }).then((response) => {
-      // Validações de sucesso conforme a documentação
       expect(response.status).to.eq(201);
       expect(response.body.message).to.eq('Cadastro realizado com sucesso');
       expect(response.body).to.have.property('_id');
@@ -27,7 +26,7 @@ describe('Cenários de Teste: POST /usuarios', () => {
   });
 
   it('Status 400: Deve validar que não é permitido cadastrar usuário com e-mail já utilizado.', () => {
-    // 1. Definimos uma massa de dados única para este teste
+    // Definimos uma massa de dados única para este teste
     const dadosUsuario = {
       nome: "Lucas Teste Duplicado",
       email: `lucas_burn_${Date.now()}@qa.com`,
@@ -35,18 +34,17 @@ describe('Cenários de Teste: POST /usuarios', () => {
       administrador: "true"
     };
 
-    // 2. Primeiro cadastro: Criamos o usuário para garantir que ele existe
+    // Primeiro cadastro: Criamos o usuário para garantir que ele existe
     cy.request('POST', '/usuarios', dadosUsuario).then((resCadastro) => {
       expect(resCadastro.status).to.eq(201);
 
-      // 3. Segundo cadastro: Tentamos enviar EXATAMENTE os mesmos dados
+      // Segundo cadastro: Tentamos enviar EXATAMENTE os mesmos dados
       cy.request({
         method: 'POST',
         url: '/usuarios',
-        failOnStatusCode: false, // Permite que o Cypress capture o erro 400
+        failOnStatusCode: false,
         body: dadosUsuario
       }).then((resDuplicado) => {
-        // Validações baseadas no screenshot da documentação
         expect(resDuplicado.status).to.eq(400);
         expect(resDuplicado.body.message).to.eq('Este email já está sendo usado');
       });
