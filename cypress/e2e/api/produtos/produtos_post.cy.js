@@ -23,7 +23,7 @@ describe('Cenários de Teste: POST /produtos', () => {
     });
   });
 
-  it('Status 201: Deve cadastrar um produto com sucesso.', () => {
+  it('Status 201: It should successfully register a product.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',
@@ -40,7 +40,7 @@ describe('Cenários de Teste: POST /produtos', () => {
     });
   });
 
-  it('Status 400: Deve validar erro de nome já existente.', () => {
+  it('Status 400: It should validate error of existing product name.', () => {
     const nomeFixo = `Repetido_${Date.now()}`;
     
     // Cadastra o primeiro
@@ -60,7 +60,7 @@ describe('Cenários de Teste: POST /produtos', () => {
     });
   });
 
-  it('Status 401; Deve validar erro de token ausente ou inválido.', () => {
+  it('Status 401: It should validate error of missing or invalid token.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',
@@ -73,7 +73,7 @@ describe('Cenários de Teste: POST /produtos', () => {
     });
   });
 
-  it('Status 403: Deve validar acesso proibido para usuários não admin.', () => {
+  it('Status 403: It should validate forbidden access for non-administrators.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',

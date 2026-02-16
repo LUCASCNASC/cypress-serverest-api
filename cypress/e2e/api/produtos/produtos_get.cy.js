@@ -1,6 +1,6 @@
 describe('Cenários de Teste: GET /produtos', () => {
 
-  it('Status 200: Deve listar todos os produtos cadastrados com sucesso.', () => {
+  it('Status 200: It should list all successfully registered products.', () => {
     cy.request({
       method: 'GET',
       url: '/produtos'

@@ -20,7 +20,7 @@ describe('Cenários de Teste: GET /produtos/{_id}', () => {
     });
   });
 
-  it('Status 200: Deve buscar um produto por ID com sucesso.', () => {
+  it('Status 200: It should be able to successfully search for a product by ID.', () => {
     const nomeProd = `Produto_${Date.now()}`;
 
     // Criar o produto para garantir que o ID exista
@@ -45,7 +45,7 @@ describe('Cenários de Teste: GET /produtos/{_id}', () => {
     });
   });
 
-  it('Status 400: Deve retornar erro ao buscar um produto com ID inexistente.', () => {
+  it('Status 400: It should return an error when trying to search for a non-existent product.', () => {
     // Usando um ID no formato que o MongoDB/ServeRest espera, mas que não existe
     const idInexistente = '0uxuPY0cbmQhpEz1'; 
 

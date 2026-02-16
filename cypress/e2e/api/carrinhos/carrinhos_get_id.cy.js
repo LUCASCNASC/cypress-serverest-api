@@ -36,7 +36,7 @@ describe('Cenários de Teste: GET /carrinhos/{_id}', () => {
     });
   });
 
-  it('Status 200: Deve buscar um carrinho por ID com sucesso.', () => {
+  it('Status 200: It should successfully search for a cart by ID.', () => {
     cy.request({
       method: 'GET',
       url: `/carrinhos/${idCarrinho}`
@@ -51,7 +51,7 @@ describe('Cenários de Teste: GET /carrinhos/{_id}', () => {
     });
   });
 
-  it('Status 400: Deve retornar erro ao buscar carrinho inexistente.', () => {
+  it('Status 400: It should return an error when trying to search for a non-existent cart.', () => {
     // Usando um ID com formato correto (24 chars NoSQL) mas que não existe
     const idFake = '0uxuPY0cbmQhpEz1'; 
 
