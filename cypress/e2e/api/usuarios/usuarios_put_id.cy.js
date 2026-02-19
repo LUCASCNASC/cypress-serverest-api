@@ -1,4 +1,4 @@
-describe('Cenários de Teste: PUT /usuarios/{_id}', () => {
+describe('PUT /usuarios/{_id}', () => {
 
   it('Status 200: It should successfully change a user.', () => {
     const timestamp = Date.now();

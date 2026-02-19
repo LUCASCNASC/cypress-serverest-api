@@ -1,4 +1,4 @@
-describe('Cenários de Teste: DELETE /usuarios/{_id}', () => {
+describe('DELETE /usuarios/{_id}', () => {
 
   it('Status 200: It should successfully delete a user..', () => {
     const timestamp = Date.now();

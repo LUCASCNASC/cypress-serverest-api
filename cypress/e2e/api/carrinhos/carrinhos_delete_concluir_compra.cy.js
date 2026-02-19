@@ -1,4 +1,4 @@
-describe('Cenários de Teste: Concluir Compra', () => {
+describe('DELETE /carrinhos/concluir-compra', () => {
   let tokenValido;
 
   beforeEach(() => {

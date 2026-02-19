@@ -1,4 +1,4 @@
-describe('Cenários de Teste: DELETE /produtos/{_id}', () => {
+describe('DELETE /produtos/{_id}', () => {
   let tokenAdmin;
   let tokenComum;
 

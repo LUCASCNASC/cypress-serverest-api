@@ -1,4 +1,4 @@
-describe('API Login - ServeRest', () => {
+describe('POST /login', () => {
 
   const endpoint = '/login';
   const usersEndpoint = '/usuarios';

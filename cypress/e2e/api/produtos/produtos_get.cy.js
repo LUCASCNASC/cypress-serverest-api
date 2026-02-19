@@ -1,4 +1,4 @@
-describe('Cenários de Teste: GET /produtos', () => {
+describe('GET /produtos', () => {
 
   it('Status 200: It should list all successfully registered products.', () => {
     cy.request({

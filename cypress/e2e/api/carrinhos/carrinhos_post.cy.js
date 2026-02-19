@@ -1,4 +1,4 @@
-describe('Cenários de Teste: POST /carrinhos', () => {
+describe('POST /carrinhos', () => {
   let tokenValido;
   let idProduto;
 

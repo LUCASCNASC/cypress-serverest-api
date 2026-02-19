@@ -1,4 +1,4 @@
-describe('Cenários de Teste: GET /usuarios/{_id}', () => {
+describe('GET /usuarios/{_id}', () => {
 
   it('Status 200: It should successfully search for a user by ID.', () => {
     // Criar um novo usuário para garantir que o ID existe

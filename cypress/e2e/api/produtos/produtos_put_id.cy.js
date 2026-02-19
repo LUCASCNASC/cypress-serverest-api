@@ -1,4 +1,4 @@
-describe('Cenários de Teste: PUT /produtos/{_id}', () => {
+describe('PUT /produtos/{_id}', () => {
   let tokenAdmin;
   let tokenComum;
 

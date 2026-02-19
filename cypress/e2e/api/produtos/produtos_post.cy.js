@@ -1,4 +1,4 @@
-describe('Cenários de Teste: POST /produtos', () => {
+describe('POST /produtos', () => {
   let tokenAdmin;
   let tokenComum;
 
