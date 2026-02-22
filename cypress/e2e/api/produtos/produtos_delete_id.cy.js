@@ -1,4 +1,4 @@
-describe('DELETE /produtos/{_id}', () => {
+describe('Endpoint - DELETE /produtos/{_id}', () => {
   let tokenAdmin;
   let tokenComum;
 

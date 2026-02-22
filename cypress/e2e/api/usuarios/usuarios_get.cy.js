@@ -1,4 +1,4 @@
-describe('ET /usuarios', () => {
+describe('Endpoint - ET /usuarios', () => {
 
   it('Status 200: It should list all successfully registered users.', () => {
     cy.request({

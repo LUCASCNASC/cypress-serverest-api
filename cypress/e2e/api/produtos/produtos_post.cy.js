@@ -1,4 +1,4 @@
-describe('POST /produtos', () => {
+describe('Endpoint - POST /produtos', () => {
   let tokenAdmin;
   let tokenComum;
 

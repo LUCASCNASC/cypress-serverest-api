@@ -1,4 +1,4 @@
-describe('DELETE /usuarios/{_id}', () => {
+describe('Endpoint - DELETE /usuarios/{_id}', () => {
 
   it('Status 200: It should successfully delete a user..', () => {
     const timestamp = Date.now();
