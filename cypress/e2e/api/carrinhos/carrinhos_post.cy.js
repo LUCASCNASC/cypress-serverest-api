@@ -43,7 +43,7 @@ describe('Endpoint - POST /carrinhos', () => {
     });
   });
 
-  it('Status 201: It should successfully register a cart.', () => {
+  it('Status code 201: It should successfully register a cart.', () => {
     cy.request({
       method: 'POST',
       url: '/carrinhos',
@@ -60,7 +60,7 @@ describe('Endpoint - POST /carrinhos', () => {
     });
   });
 
-  it('Status 400: It should validate error when trying to have more than 1 cart.', () => {
+  it('Status code 400: It should validate error when trying to have more than 1 cart.', () => {
     const payload = {
       produtos: [{ idProduto: idProduto, quantidade: 1 }]
     };
@@ -86,7 +86,7 @@ describe('Endpoint - POST /carrinhos', () => {
     });
   });
 
-  it('Status 401: It should validate error of missing or invalid token.', () => {
+  it('Status code 401: It should validate error of missing or invalid token.', () => {
     cy.request({
       method: 'POST',
       url: '/carrinhos',

@@ -1,6 +1,6 @@
 describe('Endpoint - GET /produtos', () => {
 
-  it('Status 200: It should list all successfully registered products.', () => {
+  it('Status code 200: It should list all successfully registered products.', () => {
     cy.request({
       method: 'GET',
       url: '/produtos'

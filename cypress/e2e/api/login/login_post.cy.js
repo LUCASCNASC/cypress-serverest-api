@@ -29,7 +29,7 @@ describe('Endpoint - POST /login', () => {
 
   context('Positive scenarios', () => {
 
-    it('Status 200: Login success', () => {
+    it('Status code 200: Login success', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -50,7 +50,7 @@ describe('Endpoint - POST /login', () => {
 
   context('Negative Scenarios - Invalid credentials', () => {
 
-    it('Status 401: Try login with invalid email', () => {
+    it('Status code 401: Try login with invalid email', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -65,7 +65,7 @@ describe('Endpoint - POST /login', () => {
       })
     })
 
-    it('Status 401: Try login with invalid password', () => {
+    it('Status code 401: Try login with invalid password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -80,7 +80,7 @@ describe('Endpoint - POST /login', () => {
       })
     })
 
-    it('Status 401: Try login with invalid email and password', () => {
+    it('Status code 401: Try login with invalid email and password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -99,7 +99,7 @@ describe('Endpoint - POST /login', () => {
 
   context('Negative Scenarios - Required fields empty', () => {
 
-    it('Status 400: Try login with empty email', () => {
+    it('Status code 400: Try login with empty email', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -113,7 +113,7 @@ describe('Endpoint - POST /login', () => {
       })
     })
 
-    it('Status 400: Try login with empty password', () => {
+    it('Status code 400: Try login with empty password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,
@@ -127,7 +127,7 @@ describe('Endpoint - POST /login', () => {
       })
     })
 
-    it('Status 400: Try login with empty email and password', () => {
+    it('Status code 400: Try login with empty email and password', () => {
       cy.request({
         method: 'POST',
         url: endpoint,

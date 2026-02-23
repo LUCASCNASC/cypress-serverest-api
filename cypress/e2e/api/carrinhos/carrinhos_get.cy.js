@@ -44,7 +44,7 @@ describe('Endpoint - GET /carrinhos', () => {
     });
   });
 
-  it('Status 200: It should successfully list all carts.', () => {
+  it('Status code 200: It should successfully list all carts.', () => {
     cy.request({
       method: 'GET',
       url: '/carrinhos'

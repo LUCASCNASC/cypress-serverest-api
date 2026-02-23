@@ -1,6 +1,6 @@
 describe('Endpoint - PUT /usuarios/{_id}', () => {
 
-  it('Status 200: It should successfully change a user.', () => {
+  it('Status code 200: It should successfully change a user.', () => {
     const timestamp = Date.now();
     const dadosIniciais = {
       nome: `Original_${timestamp}`,
@@ -30,7 +30,7 @@ describe('Endpoint - PUT /usuarios/{_id}', () => {
     });
   });
 
-  it('Status 201: It should register a new user via PUT if the ID does not exist.', () => {
+  it('Status code 201: It should register a new user via PUT if the ID does not exist.', () => {
     const idInexistente = `id_fake_${Date.now()}`;
     
     cy.request({
@@ -49,7 +49,7 @@ describe('Endpoint - PUT /usuarios/{_id}', () => {
     });
   });
 
-  it('Status 400: It should return error when trying to use an email already in use.', () => {
+  it('Status code 400: It should return error when trying to use an email already in use.', () => {
     const timestamp = Date.now();
     const emailJaEmUso = `ja_existe_${timestamp}@qa.com`;
 

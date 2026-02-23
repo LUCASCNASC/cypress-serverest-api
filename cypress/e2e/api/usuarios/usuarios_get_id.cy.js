@@ -1,6 +1,6 @@
 describe('Endpoint - GET /usuarios/{_id}', () => {
 
-  it('Status 200: It should successfully search for a user by ID.', () => {
+  it('Status code 200: It should successfully search for a user by ID.', () => {
     // Criar um novo usuário para garantir que o ID existe
     const timestamp = Date.now();
     const dadosUsuario = {
@@ -26,7 +26,7 @@ describe('Endpoint - GET /usuarios/{_id}', () => {
     });
   });
 
-  it('Status 400: It should return error when trying to search for a non-existent user ID.', () => {
+  it('Status code 400: It should return error when trying to search for a non-existent user ID.', () => {
     const idInexistente = '0aaaAA0aaaAaaAa0';
 
     cy.request({
@@ -39,7 +39,7 @@ describe('Endpoint - GET /usuarios/{_id}', () => {
     });
   });
 
-  it('Status 400: It should return error when trying to search for an invalid ID format.', () => {
+  it('Status code 400: It should return error when trying to search for an invalid ID format.', () => {
     const idIerrado = 'ID_QUE_NAO_EXISTE_123';
 
     cy.request({

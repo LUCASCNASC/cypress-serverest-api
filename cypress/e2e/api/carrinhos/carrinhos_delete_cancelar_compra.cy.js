@@ -43,7 +43,7 @@ describe('Endpoint - DELETE /carrinhos/cancelar-compra', () => {
     });
   });
 
-  it('Status 200: It should complete the purchase successfully.', () => {
+  it('Status code 200: It should complete the purchase successfully.', () => {
     cy.request({
       method: 'DELETE',
       url: '/carrinhos/concluir-compra',
@@ -54,7 +54,7 @@ describe('Endpoint - DELETE /carrinhos/cancelar-compra', () => {
     });
   });
 
-  it('Status 401: It should return an error when trying to complete without an access token.', () => {
+  it('Status code 401: It should return an error when trying to complete without an access token.', () => {
     cy.request({
       method: 'DELETE',
       url: '/carrinhos/concluir-compra',

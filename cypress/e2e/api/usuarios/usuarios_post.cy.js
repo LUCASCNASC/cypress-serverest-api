@@ -1,6 +1,6 @@
 describe('Endpoint - POST /usuarios', () => {
 
-  it('Status 201: It should successfully register a user - Dynamic Data', () => {
+  it('Status code 201: It should successfully register a user - Dynamic Data', () => {
     // Gerando sufixo único baseado no timestamp atual
     const timestamp = Date.now();
     
@@ -25,7 +25,7 @@ describe('Endpoint - POST /usuarios', () => {
     });
   });
 
-  it('Status 400: It should validate that it is not allowed to register a user with an email already in use.', () => {
+  it('Status code 400: It should validate that it is not allowed to register a user with an email already in use.', () => {
     // Definimos uma massa de dados única para este teste
     const dadosUsuario = {
       nome: "Lucas Teste Duplicado",

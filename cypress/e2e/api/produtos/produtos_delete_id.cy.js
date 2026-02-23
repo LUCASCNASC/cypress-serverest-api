@@ -6,7 +6,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     const emailAdmin = `admin_del_${Date.now()}@qa.com`;
     const emailComum = `comum_del_${Date.now()}@qa.com`;
 
-    // Criar e Logar com Admin (necessário para os status 200 e 400)
+    // Criar e Logar com Admin (necessário para os Status code 200 e 400)
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // Criar e Logar com Usuário Comum (necessário para o status 403)
+    // Criar e Logar com Usuário Comum (necessário para o Status code 403)
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {
@@ -23,7 +23,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status 200: It should successfully delete a product.', () => {
+  it('Status code 200: It should successfully delete a product.', () => {
     // Primeiro cria um produto para garantir que o ID exista para deleção
     cy.request({
       method: 'POST',
@@ -47,7 +47,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status 400: It should return an error when trying to delete a product that is part of a cart.', () => {
+  it('Status code 400: It should return an error when trying to delete a product that is part of a cart.', () => {
     // ID de exemplo que geralmente possui carrinho no ServeRest
     const idComCarrinho = 'BeeJh5lz3k6kSlzA'; 
 
@@ -58,7 +58,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
       failOnStatusCode: false
     }).then((response) => {
       // Se o ID existir e tiver carrinho, valida o erro 400
-      if (response.status === 400) {
+      if (response.Status code === 400) {
         expect(response.body.message).to.eq('Não é permitido excluir produto que faz parte de carrinho');
         expect(response.body).to.have.property('idCarrinho');
       } else {
@@ -68,7 +68,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status 401: It should validate error of missing or invalid token.', () => {
+  it('Status code 401: It should validate error of missing or invalid token.', () => {
     cy.request({
       method: 'DELETE',
       url: '/produtos/id_qualquer',
@@ -80,7 +80,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status 403: It should validate forbidden access for non-administrators.', () => {
+  it('Status code 403: It should validate forbidden access for non-administrators.', () => {
     cy.request({
       method: 'DELETE',
       url: '/produtos/id_qualquer',

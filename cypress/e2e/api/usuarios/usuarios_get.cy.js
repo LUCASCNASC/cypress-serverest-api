@@ -1,6 +1,6 @@
 describe('Endpoint - ET /usuarios', () => {
 
-  it('Status 200: It should list all successfully registered users.', () => {
+  it('Status code 200: It should list all successfully registered users.', () => {
     cy.request({
       method: 'GET',
       url: '/usuarios'

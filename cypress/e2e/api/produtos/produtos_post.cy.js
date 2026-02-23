@@ -6,7 +6,7 @@ describe('Endpoint - POST /produtos', () => {
     const emailAdmin = `admin_${Date.now()}@qa.com`;
     const emailComum = `comum_${Date.now()}@qa.com`;
 
-    // Criar e Logar com Administrador (para status 201 e 400)
+    // Criar e Logar com Administrador (para Status code 201 e 400)
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Endpoint - POST /produtos', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // Criar e Logar com Usuário Comum (para status 403)
+    // Criar e Logar com Usuário Comum (para Status code 403)
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {
@@ -23,7 +23,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status 201: It should successfully register a product.', () => {
+  it('Status code 201: It should successfully register a product.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',
@@ -40,7 +40,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status 400: It should validate error of existing product name.', () => {
+  it('Status code 400: It should validate error of existing product name.', () => {
     const nomeFixo = `Repetido_${Date.now()}`;
     
     // Cadastra o primeiro
@@ -60,7 +60,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status 401: It should validate error of missing or invalid token.', () => {
+  it('Status code 401: It should validate error of missing or invalid token.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',
@@ -73,7 +73,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status 403: It should validate forbidden access for non-administrators.', () => {
+  it('Status code 403: It should validate forbidden access for non-administrators.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',

@@ -1,6 +1,6 @@
 describe('Endpoint - DELETE /usuarios/{_id}', () => {
 
-  it('Status 200: It should successfully delete a user..', () => {
+  it('Status code 200: It should successfully delete a user..', () => {
     const timestamp = Date.now();
     const dadosUsuario = {
       nome: `Delete_Me_${timestamp}`,
@@ -18,7 +18,7 @@ describe('Endpoint - DELETE /usuarios/{_id}', () => {
         method: 'DELETE',
         url: `/usuarios/${idUsuario}`
       }).then((response) => {
-        // Validação baseada no seu screenshot (Status 200)
+        // Validação baseada no seu screenshot (Status code 200)
         expect(response.status).to.eq(200);
         expect(response.body.message).to.be.oneOf([
           'Registro excluído com sucesso',
@@ -28,7 +28,7 @@ describe('Endpoint - DELETE /usuarios/{_id}', () => {
     });
   });
 
-  it('Status 400: It should return error when trying to delete a user with a cart.', () => {
+  it('Status code 400: It should return error when trying to delete a user with a cart.', () => {
     // Nota: Para este cenário, o usuário precisa ter um carrinho vinculado.
     // Como estamos focados em Usuários, usaremos um ID que sabidamente possui erro no ServeRest
     // ou um fluxo onde você criaria um produto e um carrinho antes (mais complexo).
@@ -40,8 +40,8 @@ describe('Endpoint - DELETE /usuarios/{_id}', () => {
       url: `/usuarios/${idComCarrinho}`,
       failOnStatusCode: false
     }).then((response) => {
-      // Validação baseada no seu screenshot (Status 400)
-      if (response.status === 400) {
+      // Validação baseada no seu screenshot (Status code 400)
+      if (response.Status code === 400) {
         expect(response.body.message).to.eq('Não é permitido excluir usuário com carrinho cadastrado');
         expect(response.body).to.have.property('idCarrinho');
       } else {
