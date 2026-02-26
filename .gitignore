@@ -1,2 +1,4 @@
 /node_modules
 commands_ia.text
+.env
+cypress.env.json
