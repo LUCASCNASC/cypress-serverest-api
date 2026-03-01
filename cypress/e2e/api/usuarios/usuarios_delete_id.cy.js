@@ -41,7 +41,7 @@ describe('Endpoint - DELETE /usuarios/{_id}', () => {
       failOnStatusCode: false
     }).then((response) => {
       // Validação baseada no seu screenshot (Status code 400)
-      if (response.Status code === 400) {
+      if (response.status === 400) {
         expect(response.body.message).to.eq('Não é permitido excluir usuário com carrinho cadastrado');
         expect(response.body).to.have.property('idCarrinho');
       } else {

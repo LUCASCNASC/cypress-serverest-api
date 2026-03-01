@@ -58,7 +58,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
       failOnStatusCode: false
     }).then((response) => {
       // Se o ID existir e tiver carrinho, valida o erro 400
-      if (response.Status code === 400) {
+      if (response.status === 400) {
         expect(response.body.message).to.eq('Não é permitido excluir produto que faz parte de carrinho');
         expect(response.body).to.have.property('idCarrinho');
       } else {
