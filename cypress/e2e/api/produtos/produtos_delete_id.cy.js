@@ -23,7 +23,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status code 200: It should successfully delete a product.', () => {
+  it('Status code as 200: It should successfully delete a product.', () => {
     // Primeiro cria um produto para garantir que o ID exista para deleção
     cy.request({
       method: 'POST',
@@ -47,7 +47,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status code 400: It should return an error when trying to delete a product that is part of a cart.', () => {
+  it('Status code as 400: It should return an error when trying to delete a product that is part of a cart.', () => {
     // ID de exemplo que geralmente possui carrinho no ServeRest
     const idComCarrinho = 'BeeJh5lz3k6kSlzA'; 
 
@@ -68,7 +68,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status code 401: It should validate error of missing or invalid token.', () => {
+  it('Status code as 401: It should validate error of missing or invalid token.', () => {
     cy.request({
       method: 'DELETE',
       url: '/produtos/id_qualquer',
@@ -80,7 +80,7 @@ describe('Endpoint - DELETE /produtos/{_id}', () => {
     });
   });
 
-  it('Status code 403: It should validate forbidden access for non-administrators.', () => {
+  it('Status code as 403: It should validate forbidden access for non-administrators.', () => {
     cy.request({
       method: 'DELETE',
       url: '/produtos/id_qualquer',

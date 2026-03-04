@@ -23,7 +23,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status code 201: It should successfully register a product.', () => {
+  it('Status code as 201: It should successfully register a product.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',
@@ -40,7 +40,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status code 400: It should validate error of existing product name.', () => {
+  it('Status code as 400: It should validate error of existing product name.', () => {
     const nomeFixo = `Repetido_${Date.now()}`;
     
     // Cadastra o primeiro
@@ -60,7 +60,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status code 401: It should validate error of missing or invalid token.', () => {
+  it('Status code as 401: It should validate error of missing or invalid token.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',
@@ -73,7 +73,7 @@ describe('Endpoint - POST /produtos', () => {
     });
   });
 
-  it('Status code 403: It should validate forbidden access for non-administrators.', () => {
+  it('Status code as 403: It should validate forbidden access for non-administrators.', () => {
     cy.request({
       method: 'POST',
       url: '/produtos',
