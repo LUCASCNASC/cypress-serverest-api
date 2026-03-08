@@ -23,7 +23,7 @@ describe('Endpoint - PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Status code as 200: It should successfully modify a product.', () => {
+  it('Status code 200: It should successfully modify a product.', () => {
     const nomeOriginal = `Prod_Original_${Date.now()}`;
     
     // Primeiro cria um produto para ter um ID real
@@ -53,7 +53,7 @@ describe('Endpoint - PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Status code as 201: It should successfully register a new product if the ID does not exist.', () => {
+  it('Status code 201: It should successfully register a new product if the ID does not exist.', () => {
     // Gerando um ID aleatório com exatamente 16 caracteres alfanuméricos
     const idValidoMasInexistente = Math.random().toString(36).substring(2, 10) + 
                                    Math.random().toString(36).substring(2, 10);
@@ -77,7 +77,7 @@ describe('Endpoint - PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Status code as 400: It should validate error of existing product name.', () => {
+  it('Status code 400: It should validate error of existing product name.', () => {
     const nomeEmUso = `Nome_Ocupado_${Date.now()}`;
 
     // Cadastra Produto A (Dono do nome)
@@ -118,7 +118,7 @@ describe('Endpoint - PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Status code as 401: It should validate error of missing or invalid token.', () => {
+  it('Status code 401: It should validate error of missing or invalid token.', () => {
     cy.request({
       method: 'PUT',
       url: '/produtos/qualquer_id',
@@ -131,7 +131,7 @@ describe('Endpoint - PUT /produtos/{_id}', () => {
     });
   });
 
-  it('Status code as 403: It should validate forbidden access for non-admin.', () => {
+  it('Status code 403: It should validate forbidden access for non-admin.', () => {
     cy.request({
       method: 'PUT',
       url: '/produtos/qualquer_id',

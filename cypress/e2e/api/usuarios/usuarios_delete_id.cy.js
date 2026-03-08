@@ -1,6 +1,6 @@
 describe('Endpoint - DELETE /usuarios/{_id}', () => {
 
-  it('Status code as 200: It should successfully delete a user..', () => {
+  it('Status code 200: It should successfully delete a user..', () => {
     const timestamp = Date.now();
     const dadosUsuario = {
       nome: `Delete_Me_${timestamp}`,
@@ -28,7 +28,7 @@ describe('Endpoint - DELETE /usuarios/{_id}', () => {
     });
   });
 
-  it('Status code as 400: It should return error when trying to delete a user with a cart.', () => {
+  it('Status code 400: It should return error when trying to delete a user with a cart.', () => {
     // Nota: Para este cenário, o usuário precisa ter um carrinho vinculado.
     // Como estamos focados em Usuários, usaremos um ID que sabidamente possui erro no ServeRest
     // ou um fluxo onde você criaria um produto e um carrinho antes (mais complexo).
