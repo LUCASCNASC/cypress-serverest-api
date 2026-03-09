@@ -44,7 +44,7 @@ describe('Endpoint - POST /login', () => {
         expect(response.body.authorization).to.be.a('string');
         expect(response.body.authorization).to.contain('Bearer');
       })
-    })
+    });
 
   })
 
@@ -63,7 +63,7 @@ describe('Endpoint - POST /login', () => {
         expect(response.status).to.eq(401);
         expect(response.body.message).to.eq('Email e/ou senha inválidos');
       })
-    })
+    });
 
     it('Status code 401: Try login with invalid password', () => {
       cy.request({
@@ -78,7 +78,7 @@ describe('Endpoint - POST /login', () => {
         expect(response.status).to.eq(401);
         expect(response.body.message).to.eq('Email e/ou senha inválidos');
       })
-    })
+    });
 
     it('Status code 401: Try login with invalid email and password', () => {
       cy.request({
@@ -93,7 +93,7 @@ describe('Endpoint - POST /login', () => {
         expect(response.status).to.eq(401);
         expect(response.body.message).to.eq('Email e/ou senha inválidos');
       })
-    })
+    });
 
   })
 
@@ -111,7 +111,7 @@ describe('Endpoint - POST /login', () => {
         expect(response.status).to.eq(400);
         expect(response.body.email).to.eq('email é obrigatório');
       })
-    })
+    });
 
     it('Status code 400: Try login with empty password', () => {
       cy.request({
@@ -125,7 +125,7 @@ describe('Endpoint - POST /login', () => {
         expect(response.status).to.eq(400);
         expect(response.body.password).to.eq('password é obrigatório');
       })
-    })
+    });
 
     it('Status code 400: Try login with empty email and password', () => {
       cy.request({
@@ -138,8 +138,8 @@ describe('Endpoint - POST /login', () => {
         expect(response.body.email).to.eq('email é obrigatório');
         expect(response.body.password).to.eq('password é obrigatório');
       })
-    })
+    });
 
-  })
+  });
   
-})
+});
