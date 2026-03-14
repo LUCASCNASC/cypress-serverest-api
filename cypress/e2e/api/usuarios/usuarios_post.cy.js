@@ -1,4 +1,4 @@
-describe('Endpoint - POST /usuarios', () => {
+describe('Serverest Endpoint - POST /usuarios', () => {
 
   it('Status code 201: It should successfully register a user - Dynamic Data', () => {
     // Gerando sufixo único baseado no timestamp atual

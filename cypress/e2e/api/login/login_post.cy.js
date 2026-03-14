@@ -1,4 +1,4 @@
-describe('Endpoint - POST /login', () => {
+describe('Serverest Endpoint - POST /login', () => {
 
   const endpoint = '/login';
   const usersEndpoint = '/usuarios';

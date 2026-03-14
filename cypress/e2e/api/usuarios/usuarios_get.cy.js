@@ -1,4 +1,4 @@
-describe('Endpoint - ET /usuarios', () => {
+describe('Serverest Endpoint - ET /usuarios', () => {
 
   it('Status code 200: It should list all successfully registered users.', () => {
     cy.request({

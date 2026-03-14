@@ -1,4 +1,4 @@
-describe('Endpoint - PUT /usuarios/{_id}', () => {
+describe('Serverest Endpoint - PUT /usuarios/{_id}', () => {
 
   it('Status code 200: It should successfully change a user.', () => {
     const timestamp = Date.now();

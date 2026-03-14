@@ -1,4 +1,4 @@
-describe('Endpoint - GET /usuarios/{_id}', () => {
+describe('Serverest Endpoint - GET /usuarios/{_id}', () => {
 
   it('Status code 200: It should successfully search for a user by ID.', () => {
     // Criar um novo usuário para garantir que o ID existe

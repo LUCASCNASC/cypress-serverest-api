@@ -1,4 +1,4 @@
-describe('Endpoint - POST /produtos', () => {
+describe('Serverest Endpoint - POST /produtos', () => {
   let tokenAdmin;
   let tokenComum;
 

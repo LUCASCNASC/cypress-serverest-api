@@ -1,4 +1,4 @@
-describe('Endpoint - GET /carrinhos', () => {
+describe('Serverest Endpoint - GET /carrinhos', () => {
   let idProduto;
   let token;
 

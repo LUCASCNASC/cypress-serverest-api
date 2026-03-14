@@ -1,4 +1,4 @@
-describe('Endpoint - GET /produtos/{_id}', () => {
+describe('Serverest Endpoint - GET /produtos/{_id}', () => {
   let token;
 
   before(() => {

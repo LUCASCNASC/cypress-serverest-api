@@ -1,4 +1,4 @@
-describe('Endpoint - DELETE /carrinhos/concluir-compra', () => {
+describe('Serverest Endpoint - DELETE /carrinhos/concluir-compra', () => {
   let tokenValido;
 
   beforeEach(() => {
