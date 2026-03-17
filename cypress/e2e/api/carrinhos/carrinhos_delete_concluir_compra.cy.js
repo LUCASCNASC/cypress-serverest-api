@@ -6,7 +6,7 @@ describe('Serverest Endpoint - DELETE /carrinhos/concluir-compra', () => {
     const emailAdmin = `admin_compra_${timestamp}@qa.com`;
     const emailUser = `user_compra_${timestamp}@qa.com`;
 
-    // Criar e logar com Admin para preparar o produto com estoque
+    // Create e logar com Admin para preparar o produto com estoque
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -22,14 +22,14 @@ describe('Serverest Endpoint - DELETE /carrinhos/concluir-compra', () => {
         }).then(resProd => {
           const idProd = resProd.body._id;
 
-          // Criar usuário que fará a compra e logar
+          // Create usuário que fará a compra e logar
           cy.request('POST', '/usuarios', {
             nome: "Comprador", email: emailUser, password: "teste", administrador: "false"
           }).then(() => {
             cy.request('POST', '/login', { email: emailUser, password: "teste" }).then(resLog => {
               tokenValido = resLog.body.authorization;
 
-              // Criar o carrinho para o usuário para que haja o que concluir
+              // Create o carrinho para o usuário para que haja o que concluir
               cy.request({
                 method: 'POST',
                 url: '/carrinhos',

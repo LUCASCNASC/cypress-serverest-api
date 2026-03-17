@@ -6,7 +6,7 @@ describe('Serverest Endpoint - GET /carrinhos', () => {
     const timestamp = Date.now();
     const emailAdmin = `admin_list_${timestamp}@qa.com`;
 
-    // Criar e logar com Admin para preparar a massa de dados
+    // Create e logar com Admin para preparar a massa de dados
     cy.request('POST', '/usuarios', {
       nome: "Lucas Camargo", 
       email: emailAdmin, 

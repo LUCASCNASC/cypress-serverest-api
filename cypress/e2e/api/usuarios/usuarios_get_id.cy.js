@@ -1,7 +1,7 @@
 describe('Serverest Endpoint - GET /usuarios/{_id}', () => {
 
   it('Status code 200: It should successfully search for a user by ID.', () => {
-    // Criar um novo usuário para garantir que o ID existe
+    // Create um novo usuário para garantir que o ID existe
     const timestamp = Date.now();
     const dadosUsuario = {
       nome: `Busca_${timestamp}`,

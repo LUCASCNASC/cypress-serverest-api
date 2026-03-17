@@ -6,14 +6,14 @@ describe('Serverest Endpoint - GET /carrinhos/{_id}', () => {
     const timestamp = Date.now();
     const emailAdmin = `admin_cart_${timestamp}@qa.com`;
 
-    // Criar e logar com Admin para prover Produto e Carrinho
+    // Create e logar com Admin para prover Produto e Carrinho
     cy.request('POST', '/usuarios', {
       nome: "Lucas Camargo", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
       cy.request('POST', '/login', { email: emailAdmin, password: "teste" }).then(res => {
         token = res.body.authorization;
 
-        // Criar um produto para colocar no carrinho
+        // Create um produto para colocar no carrinho
         cy.request({
           method: 'POST',
           url: '/produtos',
@@ -22,7 +22,7 @@ describe('Serverest Endpoint - GET /carrinhos/{_id}', () => {
         }).then(resProd => {
           const idProduto = resProd.body._id;
 
-          // Criar o carrinho e capturar o ID dele
+          // Create o carrinho e capturar o ID dele
           cy.request({
             method: 'POST',
             url: '/carrinhos',

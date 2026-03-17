@@ -6,7 +6,7 @@ describe('Serverest Endpoint - DELETE /produtos/{_id}', () => {
     const emailAdmin = `admin_del_${Date.now()}@qa.com`;
     const emailComum = `comum_del_${Date.now()}@qa.com`;
 
-    // Criar e Logar com Admin (necessário para os Status code 200 e 400)
+    // Create e Logar com Admin (necessário para os Status code 200 e 400)
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Serverest Endpoint - DELETE /produtos/{_id}', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // Criar e Logar com Usuário Comum (necessário para o Status code 403)
+    // Create e Logar com Usuário Comum (necessário para o Status code 403)
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {

@@ -3,7 +3,7 @@ describe('Serverest Endpoint - POST /carrinhos', () => {
   let idProduto;
 
   before(() => {
-    // Criar um Admin para cadastrar um produto (estoque necessário para o carrinho)
+    // Create um Admin para cadastrar um produto (estoque necessário para o carrinho)
     const emailAdmin = `admin_car_${Date.now()}@qa.com`;
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
@@ -31,7 +31,7 @@ describe('Serverest Endpoint - POST /carrinhos', () => {
   });
 
   beforeEach(() => {
-    // Criar um usuário novo para cada teste (Garante que não tenha carrinho prévio)
+    // Create um usuário novo para cada teste (Garante que não tenha carrinho prévio)
     const emailUser = `user_car_${Date.now()}@qa.com`;
     cy.request('POST', '/usuarios', {
       nome: "User Teste", email: emailUser, password: "teste", administrador: "false"

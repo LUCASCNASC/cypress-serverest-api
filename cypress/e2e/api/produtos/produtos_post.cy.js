@@ -6,7 +6,7 @@ describe('Serverest Endpoint - POST /produtos', () => {
     const emailAdmin = `admin_${Date.now()}@qa.com`;
     const emailComum = `comum_${Date.now()}@qa.com`;
 
-    // Criar e Logar com Administrador (para Status code 201 e 400)
+    // Create e Logar com Administrador (para Status code 201 e 400)
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Serverest Endpoint - POST /produtos', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // Criar e Logar com Usuário Comum (para Status code 403)
+    // Create e Logar com Usuário Comum (para Status code 403)
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {

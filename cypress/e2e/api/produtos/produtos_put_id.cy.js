@@ -6,7 +6,7 @@ describe('Serverest Endpoint - PUT /produtos/{_id}', () => {
     const emailAdmin = `admin_put_${Date.now()}@qa.com`;
     const emailComum = `comum_put_${Date.now()}@qa.com`;
 
-    // Criar e Logar com Admin
+    // Create e Logar com Admin
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
@@ -14,7 +14,7 @@ describe('Serverest Endpoint - PUT /produtos/{_id}', () => {
         .then(res => tokenAdmin = res.body.authorization);
     });
 
-    // Criar e Logar com Comum
+    // Create e Logar com Comum
     cy.request('POST', '/usuarios', {
       nome: "Comum", email: emailComum, password: "teste", administrador: "false"
     }).then(() => {

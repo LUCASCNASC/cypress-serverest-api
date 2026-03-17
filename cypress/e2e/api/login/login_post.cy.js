@@ -7,7 +7,7 @@ describe('Serverest Endpoint - POST /login', () => {
   let senhaValid;
 
   before(() => {
-    // Criar usuário antes dos testes
+    // Create usuário antes dos testes
     const timestamp = Date.now();
     emailValid = `qa_${timestamp}@test.com`;
     senhaValid = 'Teste123!';

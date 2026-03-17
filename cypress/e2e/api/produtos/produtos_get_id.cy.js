@@ -23,7 +23,7 @@ describe('Serverest Endpoint - GET /produtos/{_id}', () => {
   it('Status code 200: It should be able to successfully search for a product by ID.', () => {
     const nomeProd = `Produto_${Date.now()}`;
 
-    // Criar o produto para garantir que o ID exista
+    // Create o produto para garantir que o ID exista
     cy.request({
       method: 'POST',
       url: '/produtos',
