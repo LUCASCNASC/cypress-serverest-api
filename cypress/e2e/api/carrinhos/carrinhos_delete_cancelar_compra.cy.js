@@ -6,14 +6,14 @@ describe('Serverest Endpoint - DELETE /carrinhos/cancelar-compra', () => {
     const emailAdmin = `admin_compra_${timestamp}@qa.com`;
     const emailUser = `user_compra_${timestamp}@qa.com`;
 
-    // Create e logar com Admin para prover produto com estoque
+    // Create and log in with Admin to provide product with stock
     cy.request('POST', '/usuarios', {
       nome: "Admin", email: emailAdmin, password: "teste", administrador: "true"
     }).then(() => {
       cy.request('POST', '/login', { email: emailAdmin, password: "teste" }).then(res => {
         const tokenAdmin = res.body.authorization;
 
-        // Cadastrar produto necessário para o carrinho
+        // Register product necessary for the cart
         cy.request({
           method: 'POST',
           url: '/produtos',
@@ -22,7 +22,7 @@ describe('Serverest Endpoint - DELETE /carrinhos/cancelar-compra', () => {
         }).then(resProd => {
           const idProd = resProd.body._id;
 
-          // Create usuário comprador e logar
+          // Create user comprador e logar
           cy.request('POST', '/usuarios', {
             nome: "Comprador", email: emailUser, password: "teste", administrador: "false"
           }).then(() => {
