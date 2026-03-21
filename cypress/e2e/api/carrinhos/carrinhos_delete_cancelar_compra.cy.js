@@ -22,14 +22,14 @@ describe('Serverest Endpoint - DELETE /carrinhos/cancelar-compra', () => {
         }).then(resProd => {
           const idProd = resProd.body._id;
 
-          // Create user comprador e logar
+          // Create user comprador and to log in
           cy.request('POST', '/usuarios', {
             nome: "Comprador", email: emailUser, password: "teste", administrador: "false"
           }).then(() => {
             cy.request('POST', '/login', { email: emailUser, password: "teste" }).then(resLog => {
               tokenValido = resLog.body.authorization;
 
-              // Create o carrinho para o usuário
+              // Create the cart para o usuário
               cy.request({
                 method: 'POST',
                 url: '/carrinhos',
