@@ -68,5 +68,4 @@ describe('Serverest Endpoint - GET /carrinhos', () => {
       }
     });
   });
-  
 });

@@ -91,5 +91,4 @@ describe('Serverest Endpoint - DELETE /produtos/{_id}', () => {
       expect(response.body.message).to.eq('Rota exclusiva para administradores');
     });
   });
-  
 });

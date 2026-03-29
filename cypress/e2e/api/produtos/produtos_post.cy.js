@@ -85,5 +85,4 @@ describe('Serverest Endpoint - POST /produtos', () => {
       expect(res.body.message).to.eq('Rota exclusiva para administradores');
     });
   });
-  
 });

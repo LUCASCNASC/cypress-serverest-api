@@ -58,5 +58,4 @@ describe('Serverest Endpoint - GET /produtos/{_id}', () => {
       expect(response.body.message).to.eq('Produto não encontrado');
     });
   });
-  
 });

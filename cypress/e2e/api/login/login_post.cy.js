@@ -139,7 +139,5 @@ describe('Serverest Endpoint - POST /login', () => {
         expect(response.body.password).to.eq('password é obrigatório');
       })
     });
-
   });
-  
 });

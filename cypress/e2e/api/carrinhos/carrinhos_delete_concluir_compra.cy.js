@@ -65,5 +65,4 @@ describe('Serverest Endpoint - DELETE /carrinhos/concluir-compra', () => {
       expect(response.body.message).to.contain('Token de acesso ausente, inválido, expirado');
     });
   });
-  
 });

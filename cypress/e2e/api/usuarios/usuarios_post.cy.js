@@ -50,5 +50,4 @@ describe('Serverest Endpoint - POST /usuarios', () => {
       });
     });
   });
-
 });

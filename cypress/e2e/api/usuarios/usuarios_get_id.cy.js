@@ -51,5 +51,4 @@ describe('Serverest Endpoint - GET /usuarios/{_id}', () => {
       expect(response.body.id).to.eq('id deve ter exatamente 16 caracteres alfanuméricos');
     });
   });
-
 });

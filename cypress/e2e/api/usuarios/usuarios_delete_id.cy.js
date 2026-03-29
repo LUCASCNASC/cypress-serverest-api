@@ -51,5 +51,4 @@ describe('Serverest Endpoint - DELETE /usuarios/{_id}', () => {
       }
     });
   });
-
 });

@@ -18,5 +18,4 @@ describe('Serverest Endpoint - ET /usuarios', () => {
       }
     });
   });
-
 });

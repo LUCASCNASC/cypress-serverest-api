@@ -19,5 +19,4 @@ describe('Serverest Endpoint - GET /produtos', () => {
       }
     });
   });
-
 });
