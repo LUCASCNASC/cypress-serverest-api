@@ -29,7 +29,7 @@ describe('Serverest Endpoint - DELETE /carrinhos/cancelar-compra', () => {
             cy.request('POST', '/login', { email: emailUser, password: "teste" }).then(resLog => {
               tokenValido = resLog.body.authorization;
 
-              // Create the cart para o usuário
+              // Create the cart to the user
               cy.request({
                 method: 'POST',
                 url: '/carrinhos',
@@ -58,7 +58,7 @@ describe('Serverest Endpoint - DELETE /carrinhos/cancelar-compra', () => {
     cy.request({
       method: 'DELETE',
       url: '/carrinhos/concluir-compra',
-      headers: { authorization: '' }, // Token ausente
+      headers: { authorization: '' }, // Token empty
       failOnStatusCode: false
     }).then((response) => {
       expect(response.status).to.eq(401);
