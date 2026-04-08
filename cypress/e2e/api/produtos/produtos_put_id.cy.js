@@ -35,7 +35,7 @@ describe('Serverest Endpoint - PUT /produtos/{_id}', () => {
     }).then((resPost) => {
       const id = resPost.body._id;
 
-      // Realiza o PUT para editar
+      // Realiza o PUT para edit
       cy.request({
         method: 'PUT',
         url: `/produtos/${id}`,
@@ -99,7 +99,7 @@ describe('Serverest Endpoint - PUT /produtos/{_id}', () => {
     }).then((resB) => {
       const idB = resB.body._id;
 
-      // Tenta editar o Produto B usando o nome do Produto A
+      // Tenta edit o Produto B usando o nome do Produto A
       cy.request({
         method: 'PUT',
         url: `/produtos/${idB}`,

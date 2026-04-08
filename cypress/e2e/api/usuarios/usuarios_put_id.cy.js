@@ -13,7 +13,7 @@ describe('Serverest Endpoint - PUT /usuarios/{_id}', () => {
     cy.request('POST', '/usuarios', dadosIniciais).then((resPost) => {
       const idUsuario = resPost.body._id;
 
-      // Realiza o PUT para editar os dados
+      // Realiza o PUT para edit os dados
       cy.request({
         method: 'PUT',
         url: `/usuarios/${idUsuario}`,
@@ -70,7 +70,7 @@ describe('Serverest Endpoint - PUT /usuarios/{_id}', () => {
     }).then((resB) => {
       const idUsuarioB = resB.body._id;
 
-      // Tenta editar o usuário B usando o e-mail do usuário A
+      // Tenta edit o usuário B usando o e-mail do usuário A
       cy.request({
         method: 'PUT',
         url: `/usuarios/${idUsuarioB}`,
